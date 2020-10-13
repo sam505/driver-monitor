@@ -37,16 +37,6 @@ class InputFeeder:
 
             return frame
 
-    def screen_feed(self):
-        with mss.mss() as sct:
-            # Part of the screen to capture
-            monitor = {"top": 0, "left": 0, "width": 800, "height": 640}
-
-            while True:
-                last_time = time.time()
-                img = np.array(sct.grab(monitor))
-                return img
-
     def close(self):
         if not self.input_type == 'image':
             self.cap.release()
